@@ -1,5 +1,7 @@
 package com.ifi.tp.pokemon_type_api.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ifi.tp.pokemon_type_api.bo.PokemonType;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -73,12 +75,13 @@ class PokemonTypeControllerIntegrationTest {
         /** http://localhost:8080/pokemon-types/?types=electric */
         var url = "http://localhost:" + port + "/pokemon-types/?types=electric";
 
-        var listPokemons = this.restTemplate.getForObject(url, List.class);
+        var result = this.restTemplate.getForObject(url, List.class);
 
-        assertNotNull(listPokemons);
+        assertNotNull(result);
+        List<PokemonType> listPokemons = new ObjectMapper().convertValue(result,new TypeReference<List<PokemonType>>(){});
         assertEquals(9, listPokemons.size());
         var pokemon = listPokemons.get(0);
-        //assertTrue(pokemon instanceof PokemonType);
+        assertTrue(pokemon instanceof PokemonType);
         assertTrue(((PokemonType) pokemon).getTypes().contains("electric"));
     }
 
@@ -87,9 +90,10 @@ class PokemonTypeControllerIntegrationTest {
         /** http://localhost:8080/pokemon-types/?types=electric */
         var url = "http://localhost:" + port + "/pokemon-types/?types=bug,poison";
 
-        var listPokemons = this.restTemplate.getForObject(url, List.class);
+        var result = this.restTemplate.getForObject(url, List.class);
 
-        assertNotNull(listPokemons);
+        assertNotNull(result);
+        List<PokemonType> listPokemons = new ObjectMapper().convertValue(result,new TypeReference<List<PokemonType>>(){});
         assertEquals(5, listPokemons.size());
         var pokemon = listPokemons.get(0);
         assertTrue(pokemon instanceof PokemonType);
