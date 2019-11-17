@@ -1,7 +1,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ifi.tp</groupId>
-    <artifactId>pokemon-type-api-v2-atr</artifactId>
+    <artifactId>pokemon-v2-atr</artifactId>
     <version>0.1.0</version>
     <packaging>jar</packaging>
 
@@ -74,6 +74,17 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
+                    <!-- <configuration>
+                        <mainClass>${start-class}</mainClass>
+                        <layout>JAR</layout>
+                    </configuration>
+                    <executions>
+                        <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        </execution>
+                    </executions> -->
                 </plugin>
             </plugins>
         </pluginManagement>
