@@ -32,7 +32,13 @@ Dans config de tomcat : deployement -> application context : mettre /
     > java -jar target/pokemon-v2-atr-0.1.0.jar
 
 - Essayer les URLs suivants dans un navigateur (chrome, firefox, ...):
-    + http://localhost:8080/pokemon-types/
-    + http://localhost:8080/pokemon-types/5
-    + http://localhost:8080/pokemon-types/?name=mew
-    + http://localhost:8080/pokemon-types/?types=bug,poison
+    - sur heroku 
+        + https://pokemon-type-atr.herokuapp.com/pokemon-types/
+        + https://pokemon-type-atr.herokuapp.com/pokemon-types/5
+        + https://pokemon-type-atr.herokuapp.com/pokemon-types/?name=mew
+        + https://pokemon-type-atr.herokuapp.com/?types=bug,poison
+    - à local
+        + http://localhost:8080/pokemon-types/
+        + http://localhost:8080/pokemon-types/5
+        + http://localhost:8080/pokemon-types/?name=mew
+        + http://localhost:8080/pokemon-types/?types=bug,poison
